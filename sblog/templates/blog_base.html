@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block title %} blog list {% endblock %}
+
+{% block article %}
+<img src="/w3images/woods.jpg" alt="Nature" style="width:100%">
+    <div class="w3-container">
+      <h3><b>异步加载_标题</b></h3>
+      <h5>异步加载_标题描述, <span class="w3-opacity">异步加载_日期</span></h5>
+    </div>
+    <div class="w3-container">
+      <p>异步加载_文章内容</p>
+      <div class="w3-row">
+        <div class="w3-col m8 s12">
+          <p><button class="w3-button w3-padding-large w3-white w3-border"><b>READ MORE »</b></button></p>
+        </div>
+        <div class="w3-col m4 w3-hide-small">
+          <p>
+          <span class="w3-padding-large w3-right"><b>Comments  </b> 
+          	<span class="w3-tag">0</span>
+          </span>
+          </p>
+        </div>
+     </div>
+   </div>
+{% endblock %}

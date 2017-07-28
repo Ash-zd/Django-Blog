@@ -1,0 +1,27 @@
+{% extends "blog_base.html" %}
+{% block title %} Ash's Blog {% endblock %}
+
+{% block content %}
+{% load static %}
+{% for blog in blogs %}
+<div class="w3-card-4 w3-margin w3-white">
+  <!-- 文章加载区-->
+  <img src="{{ blog.image.url }}" style="width:100%">
+  <div class="w3-container">
+    <h3><b>{{ blog.caption }}</b></h3>
+    <h5>{{ blog.tags }} <span class="w3-opacity">{{ blog.publish_time }}</span></h5>
+  </div>
+  <div class="w3-container">
+    <p>{{ blog.content|slice:"100"}}</p>
+    <div class="w3-row">
+      <div class="w3-col m8 s12">
+        <p>
+        	<a href="{% url 'article' blog.id %}" target="_blank"><button class="w3-button w3-padding-large w3-white w3-border""><b>READ MORE</b></button></a>
+        </p>
+      </div>
+    </div>
+    <br>
+  </div>
+</div>
+{% endfor %}
+{% endblock %}

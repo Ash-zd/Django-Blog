@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %} {{ blog_content.caption }} {% endblock %}
+{% block container %}
+{% load static %}
+<div class="w3-card-4 w3-margin w3-white">
+  <!-- 文章加载区-->
+  <img src="{{ blog_content.image.url }}" style="width:100%;">
+  <div class="w3-container">
+    <h3><b>{{ blog_content.caption }}</b></h3>
+    <h5>{{ blog_content.tags }} <span class="w3-opacity">{{ blog_content.publish_time }}</span></h5>
+  </div>
+  <div class="w3-container">
+  	<p>{{ blog_content.content}}</p><br>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<title>
+  {% block title %}{% endblock %}        
+</title>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{% static '/sblog/css/w3c.css' %}" />
+  <link rel="stylesheet" href="{% static '/sblog/css/font.css' %}" />
+  <script type="text/javascript" src="{% static '/sblog/js/jquery-3.2.1.js' %}"></script>
+  {% block extra_head %}{% endblock %}
+</head>
+
+<style>
+  body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+</style>
+
+<body class="w3-light-grey">
+{% block body %}
+
+  {% block header %}
+    {% block menu %}
+    {% endblock %}
+  <!--END block header-->
+  {% endblock %}
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <a href="/"><h1><b>B L O G</b></h1></a>
+  <p>Welcome to the blog of <span class="w3-tag">Ash</span></p>
+</header>
+
+{% block container %}
+<!-- Grid -->
+<div class="w3-row">
+
+
+<!-- Blog entries -->
+<div class="w3-col l8 s12">
+  {% block content %}
+
+  <!-- Blog entry -->
+  <div class="w3-card-4 w3-margin w3-white">
+    <!-- 文章加载区1-->
+    {% block article %}
+      {% block article_title %}
+      {% endblock %}
+      {% block article_content %}
+      {% endblock %}
+    {% endblock %}
+  </div>
+
+  <!-- END block content-->
+  {% endblock %}
+
+<!-- END BLOG ENTRIES -->
+</div>
+
+{% block Introduction_menu %}
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card-2 w3-margin w3-margin-top">
+  <!-- 个人图片加载区-->
+  <img src="{% static 'sblog/img/test.jpg' %}" style="width:100%">
+    <div class="w3-container w3-white">
+      <h4 style=text-align:center><b>Ash</b></h4>
+      <h5>About Me:</h5>
+      <p>杭州电子科技大学 计算机在读<br><br>
+      Nothing is true, everything is permitted.</p>
+    </div>
+  </div><hr>
+
+{% block tags %}
+<!-- Labels / tags -->
+<div class="w3-card-2 w3-margin">
+  <div class="w3-container w3-padding">
+    <h4>Links</h4>
+    <!-- 标签加载区-->
+  </div>
+  <div class="w3-container w3-white">
+    <p>
+      <a href="https://github.com/Ash-zd" target="_blank"><span class="w3-tag w3-black w3-margin-bottom">GitHub</span></a>
+      <a href="https://weibo.com/Daniel_Chim" target="_blank"><span class="w3-tag w3-black w3-margin-bottom">Weibo</span></a>
+      <a href="https://www.zhihu.com/people/daniel-chim/" target="_blank"><span class="w3-tag w3-black w3-margin-bottom">Zhihu</span></a>
+    </p>
+  </div>
+</div>
+{% endblock %}
+
+<!-- END Introduction Menu -->
+</div>
+{% endblock %}
+
+<!-- END GRID -->
+</div><br>
+
+<!-- END blockcontainer -->
+{% endblock %}
+
+<!-- END w3-content -->
+</div>
+
+
+<!-- Footer -->
+{% block footer %}
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <p style=text-align:center>Contact: imash.zd@gmail.com<br>Copyright ©2017 | All Rights Reserved | Powered by Ash</p>
+</footer>
+{% endblock %}
+
+
+<!-- END block body -->
+{% endblock %}
+</body>
+</html>
